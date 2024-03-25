@@ -404,41 +404,6 @@ export interface ApiGuestGuest extends Schema.CollectionType {
   };
 }
 
-export interface ApiInvitationPageInvitationPage extends Schema.SingleType {
-  collectionName: 'invitation_pages';
-  info: {
-    singularName: 'invitation-page';
-    pluralName: 'invitation-pages';
-    displayName: 'Invitation Page';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    invitationText: Attribute.RichText & Attribute.Required;
-    image: Attribute.Media;
-    restaurantLocation: Attribute.JSON &
-      Attribute.CustomField<'plugin::google-maps.location-picker'>;
-    churchLocation: Attribute.JSON &
-      Attribute.CustomField<'plugin::google-maps.location-picker'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::invitation-page.invitation-page',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::invitation-page.invitation-page',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -667,46 +632,6 @@ export interface PluginContentReleasesReleaseAction
   };
 }
 
-export interface PluginGoogleMapsConfig extends Schema.SingleType {
-  collectionName: 'google_maps_configs';
-  info: {
-    singularName: 'config';
-    pluralName: 'configs';
-    displayName: 'Google Maps Config';
-  };
-  options: {
-    populateCreatorFields: false;
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
-  attributes: {
-    googleMapsKey: Attribute.String &
-      Attribute.Required &
-      Attribute.DefaultTo<''>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::google-maps.config',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::google-maps.config',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginI18NLocale extends Schema.CollectionType {
   collectionName: 'i18n_locale';
   info: {
@@ -916,12 +841,10 @@ declare module '@strapi/types' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'api::guest.guest': ApiGuestGuest;
-      'api::invitation-page.invitation-page': ApiInvitationPageInvitationPage;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
-      'plugin::google-maps.config': PluginGoogleMapsConfig;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
