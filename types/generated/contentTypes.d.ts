@@ -385,7 +385,6 @@ export interface ApiGuestGuest extends Schema.CollectionType {
     emailReceived: Attribute.DateTime;
     confirmed: Attribute.DateTime;
     tableNum: Attribute.String;
-    uid: Attribute.UID & Attribute.CustomField<'plugin::field-uuid.uuid'>;
     smsReceived: Attribute.DateTime;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

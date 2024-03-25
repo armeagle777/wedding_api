@@ -54,10 +54,6 @@
       "type": "string",
       "required": false
     },
-    "uid": {
-      "type": "customField",
-      "customField": "plugin::field-uuid.uuid"
-    },
     "smsReceived": {
       "type": "datetime"
     }
