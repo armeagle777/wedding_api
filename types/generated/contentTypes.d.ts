@@ -367,7 +367,7 @@ export interface ApiGuestGuest extends Schema.CollectionType {
   info: {
     singularName: 'guest';
     pluralName: 'guests';
-    displayName: 'Guest';
+    displayName: '\u0540\u0575\u0578\u0582\u0580\u0565\u0580';
     description: '';
   };
   options: {
@@ -376,9 +376,7 @@ export interface ApiGuestGuest extends Schema.CollectionType {
   attributes: {
     firstName: Attribute.String & Attribute.Required;
     lastName: Attribute.String & Attribute.Required;
-    guestNumber: Attribute.Integer &
-      Attribute.Required &
-      Attribute.DefaultTo<1>;
+    guestCount: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<1>;
     email: Attribute.Email & Attribute.Unique;
     phoneNumber: Attribute.String & Attribute.Required & Attribute.Unique;
     sent: Attribute.Boolean & Attribute.DefaultTo<false>;
@@ -387,6 +385,8 @@ export interface ApiGuestGuest extends Schema.CollectionType {
     emailReceived: Attribute.DateTime;
     confirmed: Attribute.DateTime;
     tableNum: Attribute.String;
+    uid: Attribute.UID & Attribute.CustomField<'plugin::field-uuid.uuid'>;
+    smsReceived: Attribute.DateTime;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

@@ -4,7 +4,7 @@
   "info": {
     "singularName": "guest",
     "pluralName": "guests",
-    "displayName": "Guest",
+    "displayName": "Հյուրեր",
     "description": ""
   },
   "options": {
@@ -20,7 +20,7 @@
       "type": "string",
       "required": true
     },
-    "guestNumber": {
+    "guestCount": {
       "type": "integer",
       "required": true,
       "default": 1
@@ -53,6 +53,13 @@
     "tableNum": {
       "type": "string",
       "required": false
+    },
+    "uid": {
+      "type": "customField",
+      "customField": "plugin::field-uuid.uuid"
+    },
+    "smsReceived": {
+      "type": "datetime"
     }
   }
 }
