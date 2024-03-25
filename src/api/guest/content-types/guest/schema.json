@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "guests",
+  "info": {
+    "singularName": "guest",
+    "pluralName": "guests",
+    "displayName": "Guest",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstName": {
+      "type": "string",
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "required": true
+    },
+    "guestNumber": {
+      "type": "integer",
+      "required": true,
+      "default": 1
+    },
+    "email": {
+      "type": "email",
+      "unique": true
+    },
+    "phoneNumber": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "sent": {
+      "type": "boolean",
+      "default": false
+    },
+    "viberReceived": {
+      "type": "datetime"
+    },
+    "whatsapReceived": {
+      "type": "datetime"
+    },
+    "emailReceived": {
+      "type": "datetime"
+    },
+    "confirmed": {
+      "type": "datetime"
+    },
+    "tableNum": {
+      "type": "string",
+      "required": false
+    }
+  }
+}
